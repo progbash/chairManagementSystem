@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="display-1 text-center mt-3 mb-3">Kafedralar</h1>
+<!-- <table class="table table-light table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Kafedra adı</th>
+            <th>Kafedra müdiri</th>
+            <th>Telefon</th>
+            <th>E-poçt</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for chair in chairs_list %}
+        <tr>
+            <th><a href="/chairs/{{ chair.id }}" class="text-primary">{{ chair.name }}</a></th>
+            <th class="text-dark">{{ chair.chairman }}</th>
+            <th><a href="tel: {{ chair.phone }}" class="text-dark">{{ chair.phone }}</a></th>
+            <th><a href="mailto: {{ chair.email }}" class="text-dark">{{ chair.email }}</a></th>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> -->
+
+<div class="accordion" id="accordionExample">
+    {% for chair in chairs_list %}
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#chair{{ chair.id}}"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    {{ chair.name }}
+                </button>
+            </h2>
+        </div>
+
+        <div id="chair{{ chair.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <p>Kafedra müdiri: {{ chair.chairman }}</p>
+                <p>Telefon: <a href="tel: {{ chair.phone }}" class="text-dark">{{ chair.phone }}</a></p>
+                <p>Email: <a href="mailto: {{ chair.email }}" class="text-dark">{{ chair.email }}</a></p>
+                <p><a href="/chairs/{{ chair.id }}" class="text-dark">İxtisaslara keçid</a></p>
+                <p><a href="/chairs/{{ chair.id }}/teachers" class="text-dark">Fakültənin müəllimləri</a></p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="article">
+        <div>
+            <img src="{{ article.image }}" alt="Image not found :/" class="article_img">
+            <span class="article_post_date">{{ article.post_date }}</span>
+        </div>
+        <div>
+            <h1 class="article_title">{{ article.title }}</h1>
+            <p class="article_content">{{ article.content|safe}}</p>
+        </div>
+    </div>
+{% endblock %}

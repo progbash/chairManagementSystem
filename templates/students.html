@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center; margin-top: 50px; font-weight: lighter;">Tələbələr</h1>
+    <table class="custom-table table table-dark table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Tələbənin adı</th>
+                <th>Tələbənin soyadı</th>
+                <th>Doğum ili</th>
+                <th>Topladığı bal</th>
+                <th>ÜOMG</th>
+                <th>Kurs</th>
+                <th>Qrup</th>
+                <th>İxtisas</th>
+                {% for student in students %}
+                <th class="{% if student.group.degree.id != 2 %} hide {% endif %}">İxtisaslaşma</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.surname }}</td>
+                <td>{{ student.birth_year }}</td>
+                <td>{{ student.score }}</td>
+                <td>{{ student.gpa }}</td>
+                <td>{{ student.course }}</td>
+                <td>{{ student.group }}</td>
+                <td>{{ student.specialty }}</td>
+                <td class="{% if student.group.degree.id != 2 %} hide {% endif %}">{{ student.specialization }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

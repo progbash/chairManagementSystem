@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center; margin-top: 50px; font-weight: lighter;">Qruplar</h1>
+    <table class="custom-table table table-dark table-striped table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Qrup</th>
+                <th>Tədris ili</th>
+                <th>İxtisas</th>
+                {% for group in groups %}
+                <th class="{% if group.degree.id != 2 %} hide {% endif %}">İxtisaslaşma</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for group in groups %}
+            <tr>
+                <td>{{ group.name }}</td>
+                <td>{{ group.ed_year }}</td>
+                <td>{{ group.specialty }}</td>
+                <td class="{% if group.degree.id != 2 %} hide {% endif %}">{{ group.specialization }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

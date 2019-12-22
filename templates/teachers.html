@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="display-1 text-center mt-3 mb-3">Müəllimlər</h1>
+
+<div class="accordion" id="accordionExample">
+    {% for teacher in teachers %}
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#chair{{ chair.id}}"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    {{ teacher.name }}
+                </button>
+            </h2>
+        </div>
+
+        <div id="chair{{ chair.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <img src="{{ teacher.image }}" class="teacher_img">
+                <p>Elmi dərəcə: {{ teacher.academic_degree }}</p>
+                <p>Email: <a href="mailto: {{ chair.email }}" class="text-dark">{{ teacher.email }}</a></p>
+                <p>Tədris etdiyi fənnlər: </br>{{ teacher.subject.all|join:"<br/> " }}</p>
+                <p>Doğulduğu ölkə: {{ teacher.citizenship.name }}</p>
+                <p>Bildiyi dillər: </br>{{ teacher.language.all|join:"<br/> " }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="display-1 text-center mt-3 mb-3">İxtisaslar</h1>
+<!-- <table class="table table-light table-striped table-bordered table-hover ">
+    <thead class="thead-dark">
+        <tr>
+            <th>Bakalavr dərəcəsi üzrə ixtisaslar</th>
+            <th>İxtisasın şifri</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for bachelor_s in bachelor_sp %}
+        <tr>
+            <td class="text-dark">{{ bachelor_s.name }}</td>
+            <td class="text-dark">{{ bachelor_s.specialty_code }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    <thead class="thead-dark">
+        <tr>
+            <th>Magistr dərəcəsi üzrə ixtisaslar (İxtisaslaşmalara nəzər yetirmək üçün uyğun ixtisasa klikləyin)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for master_s in master_sp %}
+        <tr>
+            <td>
+                <a href="{{ master_s.chair.id }}/{{ master_s.id }}" class="text-dark">{{ master_s.name }}</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+    <thead class="thead-dark">
+        <tr>
+            <th>Doktorantura dərəcəsi üzrə ixtisaslar</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for phd_s in phd_sp %}
+        <tr>
+            <td class="text-dark">{{ phd_s.name }}</td>
+            <td class="text-dark">{{ phd_s.specialty_code }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table> -->
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#bachelor"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Bakalavr pilləsi üzrə ixtisaslar
+                </button>
+            </h2>
+        </div>
+        {% for bachelor_s in bachelor_sp %}
+        <div id="bachelor" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="dropdown">
+                    <p class="dropbtn">{{ bachelor_s.name }}</p>
+                    <div class="dropdown-content">
+                        <a href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/groups">Qruplar</a>
+                        <a href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/students">Tələbələr</a>
+                    </div>
+                </div>
+                <p>İxtisas şifri: {{ bachelor_s.specialty_code }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#master"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Magistratura pilləsi üzrə ixtisaslar
+                </button>
+            </h2>
+        </div>
+        {% for master_s in master_sp %}
+        <div id="master" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="dropdown">
+                    <a class="dropbtn text-dark" href="{{ master_s.chair.id }}/{{ master_s.id }}" class="text-dark">{{ master_s.name }}</a>
+                    <div class="dropdown-content">
+                        <a href="{{ master_s.chair.id }}/{{ master_s.id }}/groups">Qruplar</a>
+                        <a href="{{ master_s.chair.id }}/{{ master_s.id }}/students">Tələbələr</a>
+                    </div>
+                </div>
+                <p>İxtisas şifri: {{ master_s.specialty_code }}</p> 
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#phd"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    Doktorantura pilləsi üzrə ixtisaslar
+                </button>
+            </h2>
+        </div>
+        {% for phd_s in phd_sp %}
+        <div id="phd" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+                <div class="dropdown">
+                    <p class="dropbtn">{{ phd_s.name }}</p>
+                    <div class="dropdown-content">
+                        <a href="{{ phd_s.chair.id }}/{{ phd_s.id }}/groups">Qruplar</a>
+                        <a href="{{ master_s.chair.id }}/{{ master_s.id }}/students">Tələbələr</a>
+                    </div>
+                </div>
+                <p>İxtisas şifri: {{ phd_s.specialty_code }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 style="text-align: center; margin-top: 50px; font-weight: lighter;">Əsas Xəbərlər</h1>
+    <div class="articles-container">
+        {% for article in articles %}
+        <div class="article-container">
+            <div class="img-container">
+                <img src={{ article.image }} alt="Image not found :/">
+            </div>
+            <h4>{{ article.title }}</h4>
+            <p>{{ article.description }}</p>
+            <span>{{ article.post_date }}</span>
+            <a href="/article/{{ article.id }}">Ətraflı Oxu</a>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

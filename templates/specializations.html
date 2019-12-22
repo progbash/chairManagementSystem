@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="display-1 text-center mt-3 mb-3">İxtisaslaşmalar</h1>
+<table class="custom-table table" style="background-color: rgb(0,0,0,.7); color: white; border-radius: 15px;">
+    {% for specialization in specializations %}
+    <tr>
+        <td style="cursor: pointer;  border-top:none !important;">
+            <div class="dropdown">
+                <p>{{ specialization.name }}</p>
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
