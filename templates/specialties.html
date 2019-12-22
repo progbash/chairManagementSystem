@@ -59,11 +59,11 @@
         {% for bachelor_s in bachelor_sp %}
         <div id="bachelor" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                <div class="dropdown">
-                    <p class="dropbtn">{{ bachelor_s.name }}</p>
-                    <div class="dropdown-content">
-                        <a href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/groups">Qruplar</a>
-                        <a href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/students">Tələbələr</a>
+                <div class="btn-group dropright">
+                    <p  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ bachelor_s.name }}</p>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/groups">Qruplar</a>
+                        <a class="dropdown-item" href="{{ bachelor_s.chair.id }}/{{ bachelor_s.id }}/students">Tələbələr</a>
                     </div>
                 </div>
                 <p>İxtisas şifri: {{ bachelor_s.specialty_code }}</p>
