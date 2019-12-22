@@ -113,7 +113,7 @@
                     <p class="dropbtn">{{ phd_s.name }}</p>
                     <div class="dropdown-content">
                         <a href="{{ phd_s.chair.id }}/{{ phd_s.id }}/groups">Qruplar</a>
-                        <a href="{{ master_s.chair.id }}/{{ master_s.id }}/students">Tələbələr</a>
+                        <a href="{{ phd_s.chair.id }}/{{ phd_s.id }}/students">Tələbələr</a>
                     </div>
                 </div>
                 <p>İxtisas şifri: {{ phd_s.specialty_code }}</p>

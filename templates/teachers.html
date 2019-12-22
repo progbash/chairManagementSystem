@@ -1,10 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <h1 class="display-1 text-center mt-3 mb-3">Müəllimlər</h1>
-
-<div class="accordion" id="accordionExample">
-    {% for teacher in teachers %}
-    <div class="card">
+    <!-- <div class="card">
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#chair{{ chair.id}}"
@@ -18,13 +15,37 @@
             <div class="card-body">
                 <img src="{{ teacher.image }}" class="teacher_img">
                 <p>Elmi dərəcə: {{ teacher.academic_degree }}</p>
-                <p>Email: <a href="mailto: {{ chair.email }}" class="text-dark">{{ teacher.email }}</a></p>
+                <p>Email: <a href="mailto: {{ teacher.email }}" class="text-dark">{{ teacher.email }}</a></p>
                 <p>Tədris etdiyi fənnlər: </br>{{ teacher.subject.all|join:"<br/> " }}</p>
                 <p>Doğulduğu ölkə: {{ teacher.citizenship.name }}</p>
                 <p>Bildiyi dillər: </br>{{ teacher.language.all|join:"<br/> " }}</p>
             </div>
         </div>
-    </div>
-    {% endfor %}
-</div>
+    </div> -->
+    <table class="custom-table table table-light table-striped mb-5">
+        <thead class="thead-dark">
+            <tr>
+                <th>Ad Soyad</th>
+                <th>Vətəndaşlığı</th>
+                <th>Kafedra</th>
+                <th>Elmi dərəcə</th>
+                <th>Tədris etdiyi fənn(lər)</th>
+                <th>Bildiyi dil(lər)</th>
+                <th>Elektron poçt</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for teacher in teachers %}
+            <tr>
+                <td class="text-light">{{ teacher.name }}</td>
+                <td class="text-light">{{ teacher.citizenship }}</td>
+                <td class="text-light">{{ teacher.chair }}</td>
+                <td class="text-light">{{ teacher.academic_degree }}</td>
+                <td class="text-light">{{ teacher.subject.all|join:"<br/> " }}</td>
+                <td class="text-light">{{ teacher.language.all|join:"<br/> " }}</td>
+                <td><a href="mailto: {{ teacher.email }}" class="text-light">{{ teacher.email }}</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
