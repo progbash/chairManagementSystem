@@ -4,12 +4,14 @@ from django.template import loader
 from .models import Chair, Specialty, Specialization, Teacher, Article, CGroup, Student
 
 def index(request):
+    return render(request, 'base.html')
+
+def articles(request):
     context = {
         'articles': Article.objects.all()
     }
 
     return render(request, 'articles.html', context)
-
 
 def article(request, article_id):
     context = {
@@ -46,9 +48,10 @@ def list_of_specialties(request, chair_id):
     return render(request, 'specialties.html', context)
 
 
-def list_of_specializations(request, specialty_id):
+def list_of_specializations(request, chair_id, specialty_id):
     specialties = Specialty.objects.all()
-
+    chairs = Chair.objects.all()
+    
     if specialty_id:
         specialty_id = get_object_or_404(Specialty, id=specialty_id)
         specializations = Specialization.objects.filter(specialty_id=specialty_id)

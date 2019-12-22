@@ -12,20 +12,23 @@
 
 <body>
     <nav class="navbar navbar-light bg-light">
-        <span class="navbar-text text-center">
-            <a href="/"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Aztu.png" style="width:   50px"
-                    alt="Image not found" /></a>
-        </span>
+        <div class="navbar-text text-center left-nav-container">
+            <a href="/" class="pr-3"><img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Aztu.png" style="width:50px"alt="Image not found"/></a>
+            <div class="animated-text text-center">
+                <span>
+                Kafedra AİS
+                </span>
+            </div>
+        </div>
         <div class="float-right">
             <a href="/chairs" class="text-secondary pr-3">Kafedralar</a>
+            <a href="/articles" class="text-secondary pr-3">Xəbərlər</a>
             <a href="/admin" class="text-secondary">Admin Panel</a>
         </div>
     </nav>
-    <!-- <div class="animated-text text-center">
-        <h1>
-            AzTU
-        </h1>
-    </div> -->
+    <div class="students-img-container">
+        <img src="{% static 'images/students2.png' %}" alt="">
+    </div>
     {% block content %}
     {% endblock %}
     <footer class="bg-dark text-light">
