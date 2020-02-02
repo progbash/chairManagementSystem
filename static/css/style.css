@@ -32,7 +32,7 @@ nav {
 }
 
 .animated-text span {
-    color: #ccc;
+    color: black;
 }
 
 @keyframes moving-text {
