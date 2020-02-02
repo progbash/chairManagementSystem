@@ -22,28 +22,45 @@
     </tbody>
 </table> -->
 
-<div class="accordion" id="accordionExample">
-    {% for chair in chairs_list %}
-    <div class="card">
-        <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#chair{{ chair.id}}"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    {{ chair.name }}
-                </button>
-            </h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="accordion custom-accordion" id="accordionExample">
+                {% for chair in chairs_list %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#chair{{ chair.id}}"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                {{ chair.name }}
+                            </button>
+                        </h2>
+                    </div>
+            
+                    <div id="chair{{ chair.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            <p>Kafedra müdiri: {{ chair.chairman }}</p>
+                            <p>Telefon: <a href="tel: {{ chair.phone }}" class="text-dark">{{ chair.phone }}</a></p>
+                            <p>Email: <a href="mailto: {{ chair.email }}" class="text-dark">{{ chair.email }}</a></p>
+                            <p><a href="/chairs/{{ chair.id }}" class="text-dark">İxtisaslara keçid</a></p>
+                            <p><a href="/chairs/{{ chair.id }}/teachers" class="text-dark">Fakültənin müəllimləri</a></p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
-
-        <div id="chair{{ chair.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-                <p>Kafedra müdiri: {{ chair.chairman }}</p>
-                <p>Telefon: <a href="tel: {{ chair.phone }}" class="text-dark">{{ chair.phone }}</a></p>
-                <p>Email: <a href="mailto: {{ chair.email }}" class="text-dark">{{ chair.email }}</a></p>
-                <p><a href="/chairs/{{ chair.id }}" class="text-dark">İxtisaslara keçid</a></p>
-                <p><a href="/chairs/{{ chair.id }}/teachers" class="text-dark">Fakültənin müəllimləri</a></p>
+        <div class="col-md-9">
+            <div class="chair-information">
+                <div class="container">
+                    <p class="">
+                        Azərbaycanda texniki təhsilin əsası ilk dəfə 1887-ci ilin noyabr ayında Bakı şəhər Duması tərəfindən Bakıda texniki məktəbin yaradılması ilə qoyulmuşdur. Əvvəlcə bu məktəbin mexanika şöbəsi üzrə 50, inşaat şöbəsi üzrə 55 nəfərdən ibarət buraxılışı olub. 1916-cı ildə məktəbdə artıq 494 tələbə təhsil alırdı. Onlardan cəmi 20 nəfəri azərbaycanlı tələbələr idi. 1918-ci ildə verilən qərara əsasən məktəb Politexnikum adlanır. Burada 188 nəfər tələbəsi olan neft sənayesi, elektromexanika və inşaat-memarlıq şöbələri fəaliyyət göstərirdi. O zaman Azərbaycanda cəmi 62 nəfər ali təhsillidən 12-i mühəndis idi.
+                        <br><br>
+                        AzTU-nun 35 kafedrası müxtəlif geniş miqyaslı sahələrdə tədrisin və təlimin təşkilinə xidmət edir. Faktiki olaraq, AzTU Bakının ən böyük multi-disiplinli qabaqcıl universitetidir. Kafedralarımız haqqında daha ətraflı məlumatı aşağıdan əldə edə bilərsiniz.
+                    </p>
+                </div>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

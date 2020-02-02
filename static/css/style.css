@@ -85,9 +85,19 @@ nav h1 {
     font-weight: 300;
 }
 
-.accordion {
+.accordion{
     width: 20%;
     margin-bottom: 30px;
+    box-shadow: 0px 0px 20px 1px #000 !important;
+}
+.custom-accordion{
+    width: 100% !important;
+}
+.custom-accordion-bg{
+    width: 80%;
+    text-align: center;
+    margin: 40px auto;
+    border-radius: 15px;
     box-shadow: 0px 0px 20px 1px #000;
 }
 .accordion button{
@@ -107,6 +117,13 @@ nav h1 {
 .accordion>.card{
     overflow: visible;
 }
+.chair-information{
+    background-color: rgb(255, 255, 255, .7);
+    height: auto;
+    padding: 20px 20px;
+    position: sticky;
+    top: 120px;
+}
 .dropright:hover .dropdown-menu {
     display: block !important;
 }
@@ -114,7 +131,7 @@ nav h1 {
     font-size: 14px;
     text-align: center;
 }
-.custom-table {
+.custom-table{
     width: 80%;
     text-align: center;
     margin: 40px auto;
